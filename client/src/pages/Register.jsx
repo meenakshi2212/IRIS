@@ -13,6 +13,7 @@ import {
 import CenteredAuthLayout from "../components/CenteredAuthLayout";
 import AuthFormCard from "../components/AuthFormCard";
 import "../styles/LoginPage.css";
+import "../styles/PageAnimations.css";
 import { useAuth } from "../contexts/AuthContext";
 
 const Register = () => {
@@ -77,7 +78,7 @@ const Register = () => {
   return (
     <CenteredAuthLayout>
       <AuthFormCard>
-        <div className="login-form-header">
+        <div className="login-form-header animate-fade-in-up">
           <div className="login-logo">
             <Leaf className="login-logo-icon" />
             <h2 className="login-logo-text">IRIS</h2>
@@ -89,7 +90,7 @@ const Register = () => {
 
         {/* Step indicator */}
         <div
-          className="login-stepper"
+          className="login-stepper animate-fade-in-up animate-delay-200"
           style={{ display: "flex", gap: 8, marginBottom: 16 }}
         >
           <div
@@ -112,7 +113,7 @@ const Register = () => {
 
         {step === 1 && (
           <form className="login-form" onSubmit={handleRegisterSubmit}>
-            <div className="login-form-group">
+            <div className="login-form-group animate-fade-in-up animate-delay-400">
               <label htmlFor="firstName" className="login-form-label">
                 First Name
               </label>
@@ -131,7 +132,7 @@ const Register = () => {
               </div>
             </div>
 
-            <div className="login-form-group">
+            <div className="login-form-group animate-fade-in-up animate-delay-600">
               <label htmlFor="lastName" className="login-form-label">
                 Last Name
               </label>
@@ -150,7 +151,7 @@ const Register = () => {
               </div>
             </div>
 
-            <div className="login-form-group">
+            <div className="login-form-group animate-fade-in-up animate-delay-800">
               <label htmlFor="email" className="login-form-label">
                 Email Address
               </label>
@@ -169,7 +170,7 @@ const Register = () => {
               </div>
             </div>
 
-            <div className="login-form-group">
+            <div className="login-form-group animate-fade-in-up animate-delay-800">
               <label htmlFor="password" className="login-form-label">
                 Password
               </label>
@@ -198,12 +199,12 @@ const Register = () => {
             <button
               type="submit"
               disabled={loadingRegister}
-              className="login-submit-button"
+              className="login-submit-button animate-fade-in-up animate-delay-800"
             >
               {loadingRegister ? "Creating account..." : "Continue"}
             </button>
 
-            <div className="login-form-links">
+            <div className="login-form-links animate-fade-in-up animate-delay-800">
               <Link to="/login" className="login-form-link">
                 Already have an account? Sign In
               </Link>
@@ -213,7 +214,7 @@ const Register = () => {
 
         {step === 2 && (
           <form className="login-form" onSubmit={handleVerifySubmit}>
-            <div className="login-form-group">
+            <div className="login-form-group animate-fade-in-up animate-delay-400">
               <label htmlFor="otp" className="login-form-label">
                 Enter Verification Code
               </label>
@@ -243,13 +244,13 @@ const Register = () => {
             <button
               type="submit"
               disabled={loadingVerify}
-              className="login-submit-button"
+              className="login-submit-button animate-fade-in-up animate-delay-600"
             >
               {loadingVerify ? "Verifying..." : "Verify & Finish"}
             </button>
 
             <div
-              className="login-form-links"
+              className="login-form-links animate-fade-in-up animate-delay-800"
               style={{ display: "flex", justifyContent: "space-between" }}
             >
               <button

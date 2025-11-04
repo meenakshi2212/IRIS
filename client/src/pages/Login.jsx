@@ -4,6 +4,7 @@ import { Eye, EyeOff, Mail, Lock, Leaf } from "lucide-react";
 import CenteredAuthLayout from "../components/CenteredAuthLayout";
 import AuthFormCard from "../components/AuthFormCard";
 import "../styles/LoginPage.css";
+import "../styles/PageAnimations.css";
 import { useAuth } from "../contexts/AuthContext";
 
 const Login = () => {
@@ -34,7 +35,7 @@ const Login = () => {
   return (
     <CenteredAuthLayout>
       <AuthFormCard>
-        <div className="login-form-header">
+        <div className="login-form-header animate-fade-in-up">
           <div className="login-logo">
             <Leaf className="login-logo-icon" />
             <h2 className="login-logo-text">IRIS</h2>
@@ -43,7 +44,7 @@ const Login = () => {
         </div>
 
         <form className="login-form" onSubmit={handleSubmit}>
-          <div className="login-form-group">
+          <div className="login-form-group animate-fade-in-up animate-delay-200">
             <label htmlFor="email" className="login-form-label">
               Email
             </label>
@@ -62,7 +63,7 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="login-form-group">
+          <div className="login-form-group animate-fade-in-up animate-delay-400">
             <label htmlFor="password" className="login-form-label">
               Password
             </label>
@@ -88,11 +89,11 @@ const Login = () => {
             </div>
           </div>
 
-          <button type="submit" className="login-submit-button">
+          <button type="submit" className="login-submit-button animate-fade-in-up animate-delay-600">
             Secure Login
           </button>
 
-          <div className="login-form-links">
+          <div className="login-form-links animate-fade-in-up animate-delay-800">
             <Link to="/forgot-password" className="login-form-link">
               Forgot Password?
             </Link>

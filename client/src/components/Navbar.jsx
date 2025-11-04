@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Leaf } from "lucide-react";
 import "./Navbar.css";
+import "../styles/PageAnimations.css";
 import { useAuth } from "../contexts/AuthContext";
 
 const Navbar = () => {
@@ -39,16 +40,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar animate-fade-in-up">
       <div className="navbar-container">
         {/* Logo */}
-        <div className="navbar-logo">
+        <div className="navbar-logo animate-slide-left">
           <Leaf className="logo-icon" />
           <span className="logo-text">IRIS</span>
         </div>
 
         {/* Desktop: Auth / Welcome + user dropdown */}
-        <div className="navbar-auth">
+        <div className="navbar-auth animate-slide-right animate-delay-200">
           {isLoggedIn ? (
             <div className="welcome-wrap" ref={userMenuRef}>
               <span className="welcome-text">Welcome, {firstName}</span>
@@ -97,7 +98,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="mobile-menu-btn"
+          className="mobile-menu-btn animate-fade-scale animate-delay-200"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >

@@ -11,6 +11,7 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  animation: fadeInScale 0.6s ease-out forwards;
 }
 
 .auth-form-card::before {
