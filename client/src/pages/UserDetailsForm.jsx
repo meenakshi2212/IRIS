@@ -1,55 +1,42 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { MapPin, Crop, Ruler, Leaf } from 'lucide-react';
-import SplitFormLayout from '../components/SplitFormLayout';
-import AuthFormCard from '../components/AuthFormCard';
-import '../styles/LoginPage.css';
-import '../styles/PageAnimations.css';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { MapPin, Crop, Ruler, Leaf } from "lucide-react";
+import SplitFormLayout from "../components/SplitFormLayout";
+import AuthFormCard from "../components/AuthFormCard";
+import "../styles/LoginPage.css";
+import "../styles/PageAnimations.css";
+import { useFarm } from "../contexts/FarmContext";
 
 const UserDetailsForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    plotSize: '',
-    cropType: '',
-    location: ''
+    plotSize: "",
+    cropType: "",
+    location: "",
   });
   const [loading, setLoading] = useState(false);
-
+  const { createFarm, deleteFarm } = useFarm();
   const cropOptions = [
-    { value: 'wheat', label: 'Wheat (Gehoon)' },
-    { value: 'rice', label: 'Rice (Chawal)' },
-    { value: 'sugarcane', label: 'Sugarcane (Ganna)' },
-    { value: 'cotton', label: 'Cotton (Kapas)' },
-    { value: 'maize', label: 'Maize (Makka)' },
-    { value: 'tomato', label: 'Tomato (Tamatar)' },
-    { value: 'potato', label: 'Potato (Aloo)' },
-    { value: 'onion', label: 'Onion (Pyaz)' }
+    { value: "wheat", label: "Wheat (Gehoon)" },
+    { value: "rice", label: "Rice (Chawal)" },
+    { value: "sugarcane", label: "Sugarcane (Ganna)" },
+    { value: "cotton", label: "Cotton (Kapas)" },
+    { value: "maize", label: "Maize (Makka)" },
+    { value: "tomato", label: "Tomato (Tamatar)" },
+    { value: "potato", label: "Potato (Aloo)" },
+    { value: "onion", label: "Onion (Pyaz)" },
   ];
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-
-    try {
-      // Here you would send data to backend for prediction
-      console.log('Form Data:', formData);
-      // Simulate API call
-      setTimeout(() => {
-        setLoading(false);
-        // Redirect to dashboard with farm data
-        navigate('/dashboard', { state: { farmData: formData } });
-      }, 2000);
-    } catch (error) {
-      console.error('Error:', error);
-      setLoading(false);
-    }
+    await createFarm(formData.plotSize, formData.cropType, formData.location);
   };
 
   return (
@@ -60,7 +47,9 @@ const UserDetailsForm = () => {
             <Leaf className="login-logo-icon" />
             <h2 className="login-logo-text">Farm Details</h2>
           </div>
-          <p className="login-subtitle">Tell us about your farm to get personalized recommendations</p>
+          <p className="login-subtitle">
+            Tell us about your farm to get personalized recommendations
+          </p>
         </div>
 
         <form className="login-form" onSubmit={handleSubmit}>
@@ -98,7 +87,7 @@ const UserDetailsForm = () => {
                 value={formData.cropType}
                 onChange={handleChange}
                 className="login-form-input"
-                style={{ paddingLeft: '3rem' }}
+                style={{ paddingLeft: "3rem" }}
               >
                 <option value="">Select your crop</option>
                 {cropOptions.map((crop) => (
@@ -134,7 +123,7 @@ const UserDetailsForm = () => {
             disabled={loading}
             className="login-submit-button animate-fade-in-up animate-delay-800"
           >
-            {loading ? 'Processing...' : 'Submit'}
+            {loading ? "Processing..." : "Submit"}
           </button>
 
           <div className="login-form-links animate-fade-in-up animate-delay-800">
