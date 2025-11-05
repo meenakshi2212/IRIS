@@ -176,26 +176,26 @@
 @media (max-width: 768px) {
   .navbar {
     top: 10px;
-    left: 8%;
-    right: 8%;
+    left: 5%;
+    right: 5%;
     border-radius: 16px;
   }
   
   .navbar-container {
-    padding: 1rem;
+    padding: 0.75rem 1rem;
   }
   
   .navbar-menu,
   .navbar-auth {
-    display: none;
+    display: none !important;
   }
   
   .mobile-menu-btn {
-    display: block;
+    display: block !important;
   }
   
   .logo-text {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
   .logo-icon {
@@ -207,13 +207,22 @@
 @media (max-width: 480px) {
   .navbar {
     top: 8px;
-    left: 15px;
-    right: 15px;
+    left: 10px;
+    right: 10px;
     border-radius: 14px;
   }
   
   .navbar-container {
-    padding: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  
+  .logo-icon {
+    width: 24px;
+    height: 24px;
   }
   
   .mobile-menu-content {
