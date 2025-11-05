@@ -108,8 +108,8 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="mobile-menu">
-          <div className="mobile-menu-content">
+        <div className="mobile-menu" onClick={toggleMenu}>
+          <div className="mobile-menu-content" onClick={(e) => e.stopPropagation()}>
             {isLoggedIn ? (
               <div className="mobile-auth">
                 <span className="welcome-text" style={{ textAlign: "center" }}>

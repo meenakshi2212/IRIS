@@ -50,9 +50,6 @@ const Landing = () => {
           </div>
           
           <div className="button-group animate-fade-in-up animate-delay-600">
-            <Link to="/demo" className="btn-demo">
-              View Live Demo
-            </Link>
             <Link to="/details" className="btn-access">
               Add Your Details
             </Link>
