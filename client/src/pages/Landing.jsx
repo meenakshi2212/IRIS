@@ -53,8 +53,8 @@ const Landing = () => {
             <Link to="/demo" className="btn-demo">
               View Live Demo
             </Link>
-            <Link to="/register" className="btn-access">
-              Request Early Access
+            <Link to="/details" className="btn-access">
+              Add Your Details
             </Link>
           </div>
         </div>

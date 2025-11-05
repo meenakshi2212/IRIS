@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Register from "./pages/Register";
+import UserDetailsForm from "./pages/UserDetailsForm";
+import Dashboard from "./pages/Dashboard";
 import PublicRoute from "./components/PublicRoute";
 
 const App = () => {
@@ -40,6 +42,8 @@ const App = () => {
             </PublicRoute>
           }
         />
+        <Route path="/details" element={<UserDetailsForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </>
   );
